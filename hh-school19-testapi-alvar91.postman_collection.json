@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "1ef4898c-c1c7-421f-8e75-e4f74dbdfd0f",
+		"name": "hh-school19-testapi-alvar91",
+		"description": "Выполнение домашней работы по тестированию Варовым А.П.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "emptyString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a398a495-f92f-4668-a0f1-d24f7cb6ab1b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "",
+							"description": "Пустая строка"
+						}
+					]
+				},
+				"description": "Проверка на запрос с пустой строкой"
+			},
+			"response": []
+		},
+		{
+			"name": "oneCharString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "408582fb-8996-40d1-b33c-f06710a2f9d9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=и",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "и",
+							"description": "Строка в один символ"
+						}
+					]
+				},
+				"description": "Строка в один символ"
+			},
+			"response": []
+		},
+		{
+			"name": "maxLengthString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26e517f7-a933-4489-b070-63f06150c73e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=Lorem0ipsum0dolor0sit0amet00consectetuer0adi0iscing0elit00sed0diam0nonummy0nibh0euismod0tincidunt0ut0laoreet0dolore0magna0aliquam0erat0volutpat00Ut0wisi0enim0ad0minim0veniam00quis0nostrud0exerci0tation0ullamcorper0suscipit0lobortis0nisl0ut0aliquip0ex0ea0c",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Lorem0ipsum0dolor0sit0amet00consectetuer0adi0iscing0elit00sed0diam0nonummy0nibh0euismod0tincidunt0ut0laoreet0dolore0magna0aliquam0erat0volutpat00Ut0wisi0enim0ad0minim0veniam00quis0nostrud0exerci0tation0ullamcorper0suscipit0lobortis0nisl0ut0aliquip0ex0ea0c",
+							"description": "Строка длиной 255 символов"
+						}
+					]
+				},
+				"description": "Строка длиной 255 символов"
+			},
+			"response": []
+		},
+		{
+			"name": "maxLengthString-1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04fae6c7-5c05-4d3d-b85a-e12c336df478",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=Lorem0ipsum0dolor0sit0amet00consectetuer0adi0iscing0elit00sed0diam0nonummy0nibh0euismod0tincidunt0ut0laoreet0dolore0magna0aliquam0erat0volutpat00Ut0wisi0enim0ad0minim0veniam00quis0nostrud0exerci0tation0ullamcorper0suscipit0lobortis0nisl0ut0aliquip0ex0ea ",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Lorem0ipsum0dolor0sit0amet00consectetuer0adi0iscing0elit00sed0diam0nonummy0nibh0euismod0tincidunt0ut0laoreet0dolore0magna0aliquam0erat0volutpat00Ut0wisi0enim0ad0minim0veniam00quis0nostrud0exerci0tation0ullamcorper0suscipit0lobortis0nisl0ut0aliquip0ex0ea ",
+							"description": "Строка длиной 254 символов"
+						}
+					]
+				},
+				"description": "Строка длиной 254"
+			},
+			"response": []
+		},
+		{
+			"name": "maxLengthString+1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c864526-49c5-43c5-b336-f1b592977647",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=Lorem0ipsum0dolor0sit0amet00consectetuer0adi0iscing0elit0sed0diam0nonummy0nibh0euismod0tincidunt0ut0laoreet0dolore0magna0aliquam0erat0volutpat00Ut0wisi0enim0ad0minim0veniam00quis0nostrud0exerci0tation0ullamcorper0suscipit0lobor0is0nisl0ut0aliquip0ex0ea0co",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Lorem0ipsum0dolor0sit0amet00consectetuer0adi0iscing0elit0sed0diam0nonummy0nibh0euismod0tincidunt0ut0laoreet0dolore0magna0aliquam0erat0volutpat00Ut0wisi0enim0ad0minim0veniam00quis0nostrud0exerci0tation0ullamcorper0suscipit0lobor0is0nisl0ut0aliquip0ex0ea0co",
+							"description": "Строка длиной 256 символов"
+						}
+					]
+				},
+				"description": "Строка длиной 256 символов"
+			},
+			"response": []
+		},
+		{
+			"name": "phraseString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80fe7831-f886-4f18-a7ae-409d80ef5061",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=\"Инженер конструктор\"",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "\"Инженер конструктор\"",
+							"description": "Словосочетание из двух слов"
+						}
+					]
+				},
+				"description": "Строка из словосочетаний"
+			},
+			"response": []
+		},
+		{
+			"name": "englishChars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "706155eb-5c28-4287-82f0-a95609798ed9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=engineer",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "engineer",
+							"description": "Английские символы"
+						}
+					]
+				},
+				"description": "Строка с английскими символами"
+			},
+			"response": []
+		},
+		{
+			"name": "cyrillicChars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac27a9f2-ece9-4822-887c-113792999d66",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=инженер",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "инженер",
+							"description": "Кириллические  символы"
+						}
+					]
+				},
+				"description": "Кириллические символы"
+			},
+			"response": []
+		},
+		{
+			"name": "smallBigChars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3718f980-6e77-4bb3-adb3-d62f6300da01",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=кОнСтРуКтОр",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "кОнСтРуКтОр",
+							"description": "Строка с малыми и большими буквами"
+						}
+					]
+				},
+				"description": "Маленькие и большие символы"
+			},
+			"response": []
+		},
+		{
+			"name": "specChars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "055a2b45-8265-44a6-9606-c31e5b898892",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=\\n\\t{}!@#$",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "\\n\\t{}!@#$",
+							"description": "Спец. символы"
+						}
+					],
+					"hash": "$"
+				},
+				"description": "Спец. символы"
+			},
+			"response": []
+		},
+		{
+			"name": "nums",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6aeb7d9-fb36-4440-9660-14fdc331b7d9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=1234567890",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "1234567890",
+							"description": "Числа"
+						}
+					]
+				},
+				"description": "Числовые символы"
+			},
+			"response": []
+		},
+		{
+			"name": "foundSubString",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc4f5194-1743-415d-9d83-aae090aa2c97",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Responce body contains string 'Пушкино'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Пушкино\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=Пушкино",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Пушкино",
+							"description": "Поиск подстроки"
+						}
+					]
+				},
+				"description": "Поиск подстроки в запросе"
+			},
+			"response": []
+		},
+		{
+			"name": "unknownVacancy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ddda112d-9a42-4a6e-b463-7d3ddb059a09",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=\"Котлетный потрошитель\"",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "\"Котлетный потрошитель\"",
+							"description": "Несуществующая вакансия"
+						}
+					]
+				},
+				"description": "Отсутствующая вакансия"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0741e052-64dc-45d3-8483-2d53929dce6b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "61813ce1-a336-40c2-b805-7e340d9564bd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
